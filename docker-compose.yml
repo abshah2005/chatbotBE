@@ -1,0 +1,14 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: chat-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    # No authentication for easier development
+    command: mongod --noauth
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
